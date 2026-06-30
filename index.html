@@ -4,111 +4,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fara_Cheat</title>
+
+    <title>Fara Client</title>
 
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
-<div class="background"></div>
+<!-- Loading -->
+
+<div id="loader">
+
+<div class="loader-content">
+
+<div class="loader-circle">
+
+<svg>
+
+<circle cx="70" cy="70" r="60"></circle>
+
+<circle id="progressCircle" cx="70" cy="70" r="60"></circle>
+
+</svg>
+
+<span id="loadingPercent">0%</span>
+
+</div>
+
+<h2>Fara Client</h2>
+
+</div>
+
+</div>
+
+<!-- Background -->
+
+<div class="background">
+
+<span></span>
+
+<span></span>
+
+<span></span>
+
+<span></span>
+
+</div>
+
+<!-- Header -->
 
 <header>
-    <nav>
 
-        <div class="logo">
-            <a href="#" style="text-decoration:none;color:inherit;">
-                Fara Cheat
-            </a>
-        </div>
+<nav>
 
-        <ul>
-            <li><a href="#">خانه</a></li>
-            <li><a href="#download">دانلود</a></li>
-            <li><a href="#about">درباره ما</a></li>
-        </ul>
+<div class="logo">
 
-    </nav>
+Fara Client
+
+</div>
+
+<ul>
+
+<li><a href="#">خانه</a></li>
+
+<li><a href="#features">ویژگی ها</a></li>
+
+<li><a href="#download">دانلود</a></li>
+
+<li><a href="#about">درباره ما</a></li>
+
+</ul>
+
+<div class="login-area">
+
+<a href="login.html">
+
+ورود
+
+</a>
+
+<a href="register.html" class="register">
+
+ثبت نام
+
+</a>
+
+</div>
+
+</nav>
+
 </header>
+
+<!-- Hero -->
 
 <section class="hero">
 
-    <h1>Fara_Cheat</h1>
+<div class="hero-left">
 
-    <p>
-        راحت تر از همیشه چیت بزنید 
-    </p>
+<h1>
 
-    <a href="#download" class="main-btn">
-        دانلود
-    </a>
+Fara Client
 
-</section>
+</h1>
 
-<section id="download" class="download-section">
+<p>
 
-    <h2>دانلود</h2>
+لانچر حرفه‌ای Minecraft
 
-    <div class="download-card">
+</p>
 
-        <div>
-            <h3>Fara_Cheat V1</h3>
-            <p>اخرین نسخه</p>
-        </div>
+<a href="https://github.com/amoalir24-source/Fara_Cheat/releases/download/v1/Cheat_Fara%20V1.rar"
+   class="download-btn">
+    دانلود لانچر
+</a>
 
-        <a href="downloads/Cheat_Fara V1.rar" class="download-btn" download>
-            ⬇ دانلود نسخه V1
-        </a>
+</div>
 
-    </div>
+<div class="hero-right">
+
+<img src="assets/logo.png">
+
+</div>
 
 </section>
 
-<section class="features">
+<!-- Features -->
 
-    <h2>ویژگی‌ها</h2>
+<section id="features">
 
-    <div class="cards">
+<h2>
 
-        <div class="card">
-            <h3>⚡ سرعت بالا</h3>
-            <p>اجرای سریع و روان</p>
-        </div>
+ویژگی ها
 
-        <div class="card">
-            <h3>🎮 سازگار</h3>
-            <p>سازگار با بیشتر انتی چیت ها</p>
-        </div>
+</h2>
 
-        <div class="card">
-            <h3>🎧پشتیبانی </h3>
-            <p>پشتیبانی 17 ساعته</p>
-        </div>
+<div class="cards">
 
-    </div>
+<div class="card">
+
+<h3>
+
+⚡ سرعت بالا
+
+</h3>
+
+<p>
+
+اجرای سریع لانچر
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+🎮 رابط کاربری مدرن
+
+</h3>
+
+<p>
+
+کاملا مشابه لانچرهای حرفه‌ای
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>
+
+🔒 امنیت
+
+</h3>
+
+<p>
+
+ورود با حساب کاربری
+
+</p>
+
+</div>
+
+</div>
 
 </section>
 
-<section id="about" class="about">
+<!-- Download -->
 
-    <h2>درباره ما</h2>
+<section id="download">
 
-    <p>Developer : The ASSASINAM</p>
+<h2>
 
-    <p>Developer : AMIRGAMER</p>
+دانلود
 
-    <a href="https://rubika.ir/Fara_Cheat" target="_blank" rel="noopener">
-        Rubika : @Fara_Cheat
-    </a>
+</h2>
+
+<div class="download-box">
+
+<h3>
+
+Fara Client V1
+
+</h3>
+
+<p>
+
+برای دانلود ابتدا وارد حساب شوید.
+
+</p>
+
+<button id="downloadLauncher">
+
+دانلود
+
+</button>
+
+</div>
+
+</section>
+
+<!-- About -->
+
+<section id="about">
+
+<h2>
+
+درباره ما
+
+</h2>
+
+<p>
+
+Developer : The ASSASINAM
+
+</p>
+
+<p>
+
+Developer : AMIRGAMER
+
+</p>
+
+<a href="https://rubika.ir/Fara_Cheat" target="_blank">
+
+Rubika : @Fara_Cheat
+
+</a>
 
 </section>
 
 <footer>
-    <p>© 2026 Fara Cheat</p>
+
+©2026 Fara Client
+
 </footer>
+
+<script src="loading.js"></script>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
