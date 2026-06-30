@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>داشبورد | Fara Client</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="background">
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+<div class="dashboard">
+
+<div class="dashboard-box">
+
+<h1>
+
+خوش آمدی
+
+</h1>
+
+<h2 id="welcomeUser">
+
+...
+
+</h2>
+
+<p>
+
+برای دانلود روی دکمه زیر کلیک کن.
+
+</p>
+
+<a href="downloads/FaraClient.zip"
+
+class="download-btn"
+
+download>
+
+دانلود Fara Client
+
+</a>
+
+<br><br>
+
+<button id="logoutBtn">
+
+خروج از حساب
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const login=JSON.parse(localStorage.getItem("login"));
+
+if(!login){
+
+location.href="login.html";
+
+}
+
+document.getElementById("welcomeUser").innerHTML=login.user;
+
+document.getElementById("logoutBtn").onclick=()=>{
+
+localStorage.removeItem("login");
+
+location.href="login.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
