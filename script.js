@@ -1,55 +1,21 @@
-// ==============================
-// Fara Client - script.js
-// ==============================
+const btn = document.getElementById("downloadLauncher");
 
-// تغییر ظاهر هدر هنگام اسکرول
-const nav = document.querySelector("nav");
+if(btn){
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 40) {
-        nav.style.background = "rgba(10,10,15,.90)";
-        nav.style.boxShadow = "0 10px 30px rgba(0,0,0,.35)";
-    } else {
-        nav.style.background = "rgba(255,255,255,.06)";
-        nav.style.boxShadow = "none";
-    }
-});
+btn.addEventListener("click",()=>{
 
-// انیمیشن ظاهر شدن بخش‌ها
-const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
-    });
-},{
-    threshold:0.2
-});
+const user = JSON.parse(localStorage.getItem("faraUser"));
 
-document.querySelectorAll("section").forEach(section=>{
-    section.classList.add("hidden");
-    observer.observe(section);
-});
+if(!user){
 
-// افکت کلیک روی دکمه‌ها
-document.querySelectorAll(".main-btn,.download-btn").forEach(btn=>{
+window.location.href="login.html";
 
-    btn.addEventListener("mousedown",()=>{
-        btn.style.transform="scale(.96)";
-    });
+return;
 
-    btn.addEventListener("mouseup",()=>{
-        btn.style.transform="";
-    });
+}
 
-    btn.addEventListener("mouseleave",()=>{
-        btn.style.transform="";
-    });
+window.location.href="downloads/FaraClient.zip";
 
 });
 
-// نمایش سال جاری در فوتر (اگر بخواهی بعداً از span استفاده کنی)
-const yearSpan = document.getElementById("year");
-if(yearSpan){
-    yearSpan.textContent = new Date().getFullYear();
 }
