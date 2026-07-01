@@ -1,17 +1,19 @@
 const loader = document.getElementById("loader");
 
-const percent = document.getElementById("loadingPercent");
+const progress = document.getElementById("progress");
 
-const progress = document.getElementById("progressCircle");
+const percent = document.getElementById("percent");
+
+if(loader){
 
 let value = 0;
 
-const radius = 60;
+const radius = 70;
 
-const circumference = 2 * Math.PI * radius;
+const circle = 2 * Math.PI * radius;
 
-progress.style.strokeDasharray = circumference;
-progress.style.strokeDashoffset = circumference;
+progress.style.strokeDasharray = circle;
+progress.style.strokeDashoffset = circle;
 
 const loading = setInterval(() => {
 
@@ -19,7 +21,7 @@ value++;
 
 percent.innerHTML = value + "%";
 
-const offset = circumference - (value / 100) * circumference;
+const offset = circle - (value / 100) * circle;
 
 progress.style.strokeDashoffset = offset;
 
@@ -27,9 +29,7 @@ if(value >= 100){
 
 clearInterval(loading);
 
-setTimeout(()=>{
-
-loader.style.opacity="0";
+loader.style.opacity = "0";
 
 setTimeout(()=>{
 
@@ -37,8 +37,8 @@ loader.style.display="none";
 
 },500);
 
-},300);
-
 }
 
 },15);
+
+}
