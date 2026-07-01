@@ -1,0 +1,139 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body{
+    direction:rtl;
+    background:linear-gradient(135deg,#0a0f1f,#111827,#0b1222);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    position:relative;
+}
+
+body::before{
+    content:"";
+    position:absolute;
+    width:450px;
+    height:450px;
+    background:#00ff88;
+    border-radius:50%;
+    filter:blur(170px);
+    top:-120px;
+    right:-120px;
+    opacity:.18;
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:400px;
+    height:400px;
+    background:#0066ff;
+    border-radius:50%;
+    filter:blur(180px);
+    bottom:-150px;
+    left:-120px;
+    opacity:.15;
+}
+
+.login-box{
+    position:relative;
+    width:420px;
+    padding:40px;
+    background:rgba(255,255,255,.06);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+    text-align:center;
+    z-index:10;
+}
+
+.login-box h2{
+    color:#fff;
+    margin-bottom:30px;
+    font-size:32px;
+}
+
+.login-box input{
+    width:100%;
+    padding:15px;
+    margin-bottom:18px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:rgba(255,255,255,.08);
+    color:white;
+    font-size:16px;
+    transition:.3s;
+}
+
+.login-box input::placeholder{
+    color:#bdbdbd;
+}
+
+.login-box input:focus{
+    border:1px solid #00ff88;
+    box-shadow:0 0 20px rgba(0,255,136,.25);
+}
+
+.login-box button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:17px;
+    font-weight:bold;
+    color:white;
+    background:linear-gradient(90deg,#00c853,#00e676);
+    transition:.3s;
+}
+
+.login-box button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(0,255,136,.3);
+}
+
+.login-box a{
+    display:block;
+    margin-top:20px;
+    text-decoration:none;
+    color:#00ff88;
+    transition:.3s;
+}
+
+.login-box a:hover{
+    color:white;
+}
+
+.error{
+    color:#ff5d5d;
+    margin-top:15px;
+    min-height:22px;
+}
+
+.success{
+    color:#00ff88;
+    margin-top:15px;
+    min-height:22px;
+}
+
+@media(max-width:500px){
+
+.login-box{
+    width:92%;
+    padding:30px;
+}
+
+.login-box h2{
+    font-size:26px;
+}
+
+}

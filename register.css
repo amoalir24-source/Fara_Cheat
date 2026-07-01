@@ -1,0 +1,87 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Tahoma,sans-serif;
+}
+
+body{
+    background:#0b1020;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    direction:rtl;
+    overflow:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top left,#00ff8855,transparent 40%),
+    radial-gradient(circle at bottom right,#0044ff55,transparent 45%);
+    z-index:-1;
+}
+
+.register-box{
+    width:400px;
+    background:#171d2d;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:35px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(0,255,128,.15);
+}
+
+.register-box h2{
+    color:#22ff88;
+    margin-bottom:25px;
+}
+
+.register-box input{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border:none;
+    border-radius:10px;
+    background:#222b40;
+    color:#fff;
+    outline:none;
+    font-size:15px;
+}
+
+.register-box button{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:none;
+    border-radius:10px;
+    background:#22cc66;
+    color:#fff;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.register-box button:hover{
+    background:#1ab65b;
+}
+
+.register-box a{
+    display:block;
+    margin-top:18px;
+    color:#22ff88;
+    text-decoration:none;
+}
+
+.success{
+    color:#22ff88;
+    margin-top:10px;
+}
+
+.error{
+    color:#ff4d4d;
+    margin-top:10px;
+}
