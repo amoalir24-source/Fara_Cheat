@@ -3,70 +3,45 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ورود | Fara Client</title>
+    <title>ورود | Fara Client</title>
 
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
 
 </head>
 
 <body>
 
-<div class="background">
+    <div class="login-box">
 
-<span></span>
-<span></span>
-<span></span>
-<span></span>
+        <h2>ورود به حساب</h2>
 
-</div>
+        <input
+            type="text"
+            id="username"
+            placeholder="نام کاربری">
 
-<div class="login-page">
+        <input
+            type="password"
+            id="password"
+            placeholder="رمز عبور">
 
-<div class="login-box">
+        <button onclick="login()">
+            ورود
+        </button>
 
-<h1>ورود</h1>
+        <p class="error" id="error"></p>
 
-<input type="text" id="loginUser" placeholder="نام کاربری">
+        <a href="register.html">
+            حساب ندارم | ثبت نام
+        </a>
 
-<input type="password" id="loginPass" placeholder="رمز عبور">
+    </div>
 
-<label class="remember">
-
-<input type="checkbox" id="remember">
-
-من را به خاطر بسپار (24 ساعت)
-
-</label>
-
-<button id="loginBtn">
-
-ورود
-
-</button>
-
-<p>
-
-حساب نداری؟
-
-<a href="register.html">
-
-ثبت نام
-
-</a>
-
-</p>
-
-</div>
-
-</div>
-
-<script src="auth.js"></script>
+    <script src="auth.js"></script>
 
 </body>
 
