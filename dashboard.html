@@ -7,60 +7,71 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>داشبورد | Fara Client</title>
+<title>Dashboard | Fara Client</title>
 
-<link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="dashboard.css">
 
 </head>
 
-<body>
+<body onload="loadUser()">
 
-<div class="background">
+<header>
 
-<span></span>
-<span></span>
-<span></span>
-<span></span>
+<div class="logo">
+
+Fara Client
 
 </div>
 
-<div class="dashboard">
-
-<div class="dashboard-box">
-
-<h1>
+<div class="user">
 
 خوش آمدی
 
-</h1>
-
-<h2 id="welcomeUser">
+<b id="username">
 
 ...
 
-</h2>
+</b>
+
+</div>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h1>
+
+Fara Client V1
+
+</h1>
 
 <p>
 
-برای دانلود روی دکمه زیر کلیک کن.
+برای دانلود آخرین نسخه روی دکمه زیر کلیک کنید.
 
 </p>
 
-<a href="downloads/FaraClient.zip"
+<a
+
+href="https://github.com/amoalir24-source/Fara_Cheat/releases/download/v1/Cheat_Fara%20V1.rar"
 
 class="download-btn"
 
-download>
+target="_blank">
 
-دانلود Fara Client
+دانلود
 
 </a>
 
-<br><br>
+<br>
 
-<button id="logoutBtn">
+<button
+
+class="logout-btn"
+
+onclick="logout()">
 
 خروج از حساب
 
@@ -70,23 +81,21 @@ download>
 
 </div>
 
+<footer>
+
+© 2026 Fara Client
+
+</footer>
+
+<script src="auth.js"></script>
+
 <script>
 
-const login=JSON.parse(localStorage.getItem("login"));
+function loadUser(){
 
-if(!login){
+const user=checkLogin();
 
-location.href="login.html";
-
-}
-
-document.getElementById("welcomeUser").innerHTML=login.user;
-
-document.getElementById("logoutBtn").onclick=()=>{
-
-localStorage.removeItem("login");
-
-location.href="login.html";
+document.getElementById("username").innerHTML=user;
 
 }
 
