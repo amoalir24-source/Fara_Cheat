@@ -1,127 +1,145 @@
+// ===========================
+// Fara Client - auth.js
+// ===========================
+
 // ثبت نام
+function register() {
 
-const registerBtn=document.getElementById("registerBtn");
+    const username = document.getElementById("regUsername").value.trim();
+    const password = document.getElementById("regPassword").value;
+    const password2 = document.getElementById("regPassword2").value;
 
-if(registerBtn){
+    const error = document.getElementById("error");
+    const success = document.getElementById("success");
 
-registerBtn.onclick=()=>{
+    error.innerHTML = "";
+    success.innerHTML = "";
 
-const user=document.getElementById("regUser").value.trim();
+    if (username === "" || password === "" || password2 === "") {
+        error.innerHTML = "همه فیلدها را پر کنید.";
+        return;
+    }
 
-const pass=document.getElementById("regPass").value;
+    if (password !== password2) {
+        error.innerHTML = "رمزها یکسان نیستند.";
+        return;
+    }
 
-const pass2=document.getElementById("regPass2").value;
+    const account = {
+        username: username,
+        password: password
+    };
 
-if(user==""||pass==""){
+    localStorage.setItem("FaraAccount", JSON.stringify(account));
 
-alert("همه فیلدها را پر کنید");
+    success.innerHTML = "ثبت نام با موفقیت انجام شد.";
 
-return;
-
-}
-
-if(pass!=pass2){
-
-alert("رمزها یکسان نیستند");
-
-return;
-
-}
-
-localStorage.setItem("faraAccount",
-
-JSON.stringify({
-
-username:user,
-
-password:pass
-
-})
-
-);
-
-alert("ثبت نام انجام شد");
-
-location.href="login.html";
-
-};
+    setTimeout(() => {
+        window.location.href = "login.html";
+    }, 1000);
 
 }
+
+
 
 // ورود
+function login() {
 
-const loginBtn=document.getElementById("loginBtn");
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value;
 
-if(loginBtn){
+    const error = document.getElementById("error");
 
-loginBtn.onclick=()=>{
+    error.innerHTML = "";
 
-const user=document.getElementById("loginUser").value;
+    const account = JSON.parse(localStorage.getItem("FaraAccount"));
 
-const pass=document.getElementById("loginPass").value;
+    if (!account) {
+        error.innerHTML = "ابتدا ثبت نام کنید.";
+        return;
+    }
 
-const remember=document.getElementById("remember").checked;
+    if (username !== account.username || password !== account.password) {
+        error.innerHTML = "نام کاربری یا رمز عبور اشتباه است.";
+        return;
+    }
 
-const account=
+    const expire = Date.now() + (24 * 60 * 60 * 1000);
 
-JSON.parse(localStorage.getItem("faraAccount"));
+    localStorage.setItem("FaraLogin", JSON.stringify({
+        username: username,
+        expire: expire
+    }));
 
-if(!account){
-
-alert("ابتدا ثبت نام کنید");
-
-return;
-
-}
-
-if(user!=account.username||
-
-pass!=account.password){
-
-alert("نام کاربری یا رمز اشتباه است");
-
-return;
+    window.location.href = "index.html";
 
 }
 
-const expire=
 
-Date.now()+86400000;
 
-localStorage.setItem("login",
+// بررسی لاگین
+function isLoggedIn() {
 
-JSON.stringify({
+    const login = JSON.parse(localStorage.getItem("FaraLogin"));
 
-user:user,
+    if (!login) {
+        return false;
+    }
 
-expire:remember?expire:0
+    if (Date.now() > login.expire) {
 
-})
+        localStorage.removeItem("FaraLogin");
 
-);
+        return false;
 
-location.href="dashboard.html";
+    }
 
-};
-
-}
-
-// چک ورود
-
-const login=
-
-JSON.parse(localStorage.getItem("login"));
-
-if(login){
-
-if(login.expire!=0){
-
-if(Date.now()>login.expire){
-
-localStorage.removeItem("login");
+    return true;
 
 }
 
+
+
+// دریافت نام کاربر
+function getUsername() {
+
+    const login = JSON.parse(localStorage.getItem("FaraLogin"));
+
+    if (!login) {
+        return "";
+    }
+
+    return login.username;
+
 }
+
+
+
+// دانلود
+function downloadLauncher() {
+
+    if (!isLoggedIn()) {
+
+        alert("ابتدا وارد حساب خود شوید.");
+
+        window.location.href = "login.html";
+
+        return;
+
+    }
+
+    window.location.href =
+        "https://github.com/amoalir24-source/Fara_Cheat/releases/download/v1/Cheat_Fara.V1.rar";
+
+}
+
+
+
+// خروج
+function logout() {
+
+    localStorage.removeItem("FaraLogin");
+
+    window.location.href = "index.html";
 
 }
